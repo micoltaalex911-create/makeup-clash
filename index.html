@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <title>Makeup Clash</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&amp;family=Rubik:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body { width: 100%; margin: 0; padding: 0; min-height: 100%; }
+      body { overscroll-behavior: none; }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    }
+    ::-webkit-scrollbar { display: none; }
+    body { min-height: 100dvh; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline-variant": "#5a3f48",
+            "background": "#1a0b2e",
+            "primary-fixed": "#ffd9e3",
+            "tertiary-fixed": "#ffdf9b",
+            "surface-dim": "#1a0b2e",
+            "surface-container-highest": "#3d2e52",
+            "on-primary": "#640034",
+            "outline": "#a98891",
+            "surface-container-high": "#322346",
+            "on-tertiary-fixed": "#251a00",
+            "on-secondary-container": "#d4a5ff",
+            "inverse-on-surface": "#38294d",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-container-lowest": "#150629",
+            "on-secondary": "#4a007f",
+            "secondary-fixed-dim": "#deb7ff",
+            "error-container": "#93000a",
+            "on-secondary-fixed": "#2d0050",
+            "primary-container": "#ff4799",
+            "tertiary-fixed-dim": "#edc157",
+            "on-primary-container": "#58002d",
+            "secondary-fixed": "#f1dbff",
+            "surface-tint": "#ffb0c9",
+            "on-tertiary-container": "#372700",
+            "tertiary-container": "#b28b26",
+            "on-primary-fixed": "#3e001e",
+            "on-background": "#eddcff",
+            "on-error": "#690005",
+            "surface-container-low": "#231437",
+            "surface-variant": "#3d2e52",
+            "on-surface": "#eddcff",
+            "on-surface-variant": "#e2bdc7",
+            "on-error-container": "#ffdad6",
+            "primary": "#ffb0c9",
+            "on-primary-fixed-variant": "#8e004c",
+            "surface-container": "#27183b",
+            "secondary-container": "#6b13af",
+            "primary-fixed-dim": "#ffb0c9",
+            "inverse-surface": "#eddcff",
+            "on-tertiary": "#3f2e00",
+            "surface": "#1a0b2e",
+            "error": "#ffb4ab",
+            "tertiary": "#edc157",
+            "on-secondary-fixed-variant": "#680eac",
+            "secondary": "#deb7ff",
+            "inverse-primary": "#b90066",
+            "surface-bright": "#413257"
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "0.75rem",
+            "space-xs": "0.25rem"
+          },
+          fontFamily: {
+            "headline-md": ["Anybody"],
+            "body-md": ["Rubik"],
+            "body-sm": ["Rubik"],
+            "headline-sm": ["Anybody"],
+            "display-lg": ["Anybody"],
+            "label-sm": ["Rubik"],
+            "headline-lg": ["Anybody"],
+            "label-md": ["Rubik"],
+            "label-lg": ["Rubik"],
+            "display-lg-mobile": ["Anybody"],
+            "body-lg": ["Rubik"]
+          },
+          fontSize: {
+            "headline-md": ["20px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "22px", "fontWeight": "600" }],
+            "display-lg": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "label-lg": ["15px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["16px", { "lineHeight": "22px", "fontWeight": "400" }]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface flex flex-col items-center min-h-screen">
+
+  <div class="w-full max-w-[430px] min-h-screen bg-surface flex flex-col relative shadow-[0_0_50px_rgba(0,0,0,0.8)]">
+
+    <div class="pointer-events-none fixed inset-0 z-50 overflow-hidden" id="fx-layer"></div>
+
+    <!-- BARRA SUPERIOR FIJA -->
+    <header class="sticky top-0 w-full z-40 pt-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_4px_20px_rgba(10,2,22,0.45)]">
+      <div class="h-14 px-3 flex items-center justify-between gap-2">
+        <div class="flex items-center gap-1.5 shrink-0">
+          <div class="h-8 px-2.5 rounded-full bg-secondary-container flex items-center gap-1">
+            <span class="material-symbols-outlined text-secondary text-[16px]">military_tech</span>
+            <span class="font-headline-sm text-label-md text-on-surface font-bold" id="hud-level">12</span>
+          </div>
+          <div class="h-7 px-2 rounded-full bg-tertiary/20 border border-tertiary/40 flex items-center" id="trophy-badge">
+            <span class="font-label-sm text-[10px] text-tertiary font-bold" id="trophy-progress-text">🏆 0/10</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-1.5 min-w-0">
+          <div class="h-7 px-2 rounded-full bg-surface-container-high flex items-center gap-1">
+            <span class="material-symbols-outlined text-tertiary text-[15px]">monetization_on</span>
+            <span class="font-label-sm text-label-sm text-tertiary font-bold" id="hud-coins">4.8K</span>
+          </div>
+          <div class="h-7 px-2 rounded-full bg-surface-container-high flex items-center gap-1">
+            <span class="material-symbols-outlined text-secondary text-[15px]">diamond</span>
+            <span class="font-label-sm text-label-sm text-secondary font-bold" id="hud-gems">320</span>
+          </div>
+          <div class="h-7 px-2 rounded-full bg-surface-container-high flex items-center gap-1">
+            <span class="material-symbols-outlined text-tertiary-fixed text-[15px]">star</span>
+            <span class="font-label-sm text-label-sm text-tertiary-fixed font-bold" id="hud-stars">86</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <button aria-label="Silenciar o activar sonidos" class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-surface-bright transition-colors" id="sound-toggle-btn" title="Efectos de sonido" type="button">
+            <span class="material-symbols-outlined text-[18px]" id="sound-icon">volume_up</span>
+          </button>
+          <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center overflow-hidden border border-white/30" id="header-avatar">
+            <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="flex-1 flex flex-col w-full px-3 pt-3 pb-24 gap-3">
+
+      <!-- ==================== PANTALLA 1: ESTUDIO / LOBBY ==================== -->
+      <section class="flex flex-col w-full gap-3" id="screen-estudio">
+        <div class="flex flex-col gap-2.5 bg-surface-container-low p-3 rounded-2xl shadow-lg">
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <div class="relative shrink-0">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-primary-container via-primary to-secondary p-[2px]">
+                  <div class="w-full h-full rounded-full bg-surface-container-lowest flex items-center justify-center overflow-hidden" id="profile-avatar-box">
+                    <img alt="Avatar del jugador" class="hidden w-full h-full object-cover object-top" id="profile-avatar-img" src=""/>
+                    <span class="material-symbols-outlined text-primary text-[26px]" id="profile-avatar-icon" style="font-variation-settings: 'FILL' 1;">face_retouching_natural</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <div class="flex items-center gap-1.5">
+                  <span class="font-headline-sm text-headline-sm text-on-surface truncate" id="player-name">Sofía M.</span>
+                  <button aria-label="Editar nombre" class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors shrink-0" id="edit-name-btn" type="button">
+                    <span class="material-symbols-outlined text-[14px]">edit</span>
+                  </button>
+                </div>
+                <span class="font-label-sm text-label-sm text-on-surface-variant truncate">Maquilladora Estrella • Rango Oro</span>
+              </div>
+            </div>
+            <span class="bg-surface-container px-2.5 py-1 rounded-full font-label-md text-tertiary shrink-0">#14</span>
+          </div>
+
+          <input accept="image/*" class="hidden" id="photo-upload-input" type="file"/>
+
+          <button class="relative w-full overflow-hidden rounded-full bg-gradient-to-r from-primary-container via-secondary-container to-surface-bright p-[2px] active:scale-[0.98] transition-all" id="ai-avatar-btn" type="button">
+            <div class="flex items-center justify-between w-full bg-surface-container-high px-3.5 py-2 rounded-full">
+              <div class="flex items-center gap-2 min-w-0">
+                <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">magic_button</span>
+                <div class="flex flex-col text-left min-w-0">
+                  <span class="font-label-md text-label-md text-on-surface truncate" id="upload-photo-label">Subir mi foto para avatar</span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant truncate">Elige una imagen desde tu dispositivo</span>
+                </div>
+              </div>
+              <span class="bg-gradient-to-r from-tertiary to-primary-container text-on-surface font-label-sm text-[10px] px-2 py-0.5 rounded-full uppercase font-extrabold shrink-0">FOTO</span>
+            </div>
+          </button>
+        </div>
+
+        <div class="relative w-full rounded-2xl bg-surface-container overflow-hidden shadow-xl">
+          <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1 bg-surface-container-lowest/85 backdrop-blur-md px-2.5 py-1 rounded-full">
+            <span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">pets</span>
+            <span class="font-label-sm text-label-sm text-on-surface font-bold">Tú &amp; Copito</span>
+          </div>
+          <div class="relative w-full h-56 overflow-hidden bg-surface-container-lowest flex items-center justify-center">
+            <img alt="Sofía y su perrito Copito en el camerino" class="w-full h-full object-contain object-center" id="hero-cover-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqSgXRJ09IUKaIibJ7FtnWsOthOTa3XxNkXtM5BrYafNMGh1Hek5wzY4M5abBbvjSTT5zAhA-C1dHBq9MD1b9c6MbX15YjZYxNgMFV0deujxAjdIBbtS2bbarUfTbnjbLYLGANwET_zFNXyWPafzzn0_M-3jSMPBCRvVVC-n6fuIUvxpmUaDRsGpItwaEt5gyhNAeeGi3mAYV5gc4wkK8rfd9hgFfMnzma_hNaW2g"/>
+            <div class="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-surface-container to-transparent pointer-events-none"></div>
+          </div>
+          <div class="p-3 flex items-center justify-between gap-2">
+            <div>
+              <p class="font-headline-sm text-headline-sm text-on-surface">Duelo Tokio Neón</p>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Maquilla, peina y supera a Camila</p>
+            </div>
+            <button class="px-4 py-2.5 rounded-full bg-gradient-to-r from-primary-container to-tertiary text-on-surface font-headline-sm text-label-md font-bold shadow-[0_6px_18px_rgba(255,71,153,0.45)] active:scale-95 transition-transform shrink-0 flex items-center gap-1" id="start-battle-btn" type="button">
+              <span class="material-symbols-outlined text-[18px]">swords</span>
+              <span>JUGAR</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <h2 class="font-headline-sm text-headline-sm text-on-surface px-1">Contrincante</h2>
+          <div class="grid grid-cols-3 gap-2" id="rivals-grid">
+            <button class="rival-card flex flex-col items-center p-2 rounded-2xl bg-primary-container/20 border border-primary/50 text-center transition-all" data-rival="Camila" data-score="7.8" data-style="Reina del Delineado" type="button">
+              <img alt="Camila" class="w-full h-20 object-cover object-top rounded-xl mb-1.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw0lRpikwOt32E7AUqcqlkd1BGJsqCOD2xQMo-A5JJ6LiOgujFv_iRXmywFNve_knfOvcsxJAXGzV9emKTy3_JyKWx_kcQo6BXmvsvQOXfPxf6zrZeatx-Zuupe1vE0LIMZFoYkb7QhjlKmjwzjftxEiER7EptQ3JWaN8KkdE1ljZKU8AbIlNyDc0uWrNxwHi1VHQ8nHOVOtN14_7D80XyVTlpphd3mz8jx12IFC8"/>
+              <span class="font-label-md text-label-sm text-on-surface font-bold truncate w-full">Camila</span>
+              <span class="font-label-sm text-[10px] text-tertiary">★ 7.8</span>
+            </button>
+            <button class="rival-card flex flex-col items-center p-2 rounded-2xl bg-surface-container-low border border-transparent hover:border-outline-variant text-center transition-all" data-rival="Zoe" data-score="7.2" data-style="Glam Fantasía" type="button">
+              <img alt="Zoe" class="w-full h-20 object-cover object-top rounded-xl mb-1.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbiNOQRCs1Rp0og9XeHoNFkBXxqiw8nzpojMg_Id7Zbp2p1fH-s-CxTs4hqKdS7kQIpnpzL40kN0_TTIV8-MLqkBpf5FjXV02Ky7IBJklB2e-oloPqujLZKjzqPEeJFGRbJnnNA8vkTkvQcQQsqZevVTV5gVlkWb4yxMintQS6JrudhGGNwfw4zUB9ZXkfmXn1svIs2xxx_PJ_075uH9_dvNsa9yIQ11qGA_dbV_c"/>
+              <span class="font-label-md text-label-sm text-on-surface font-bold truncate w-full">Zoe</span>
+              <span class="font-label-sm text-[10px] text-tertiary">★ 7.2</span>
+            </button>
+            <button class="rival-card flex flex-col items-center p-2 rounded-2xl bg-surface-container-low border border-transparent hover:border-outline-variant text-center transition-all" data-rival="Mia" data-score="8.1" data-style="Neón Pop" type="button">
+              <img alt="Mia" class="w-full h-20 object-cover object-top rounded-xl mb-1.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdP9xr-f4fZeP1bIypCCZdrBHmf_JBaCWa6NjhZ806PkbvfnImBKFVYRDFzSMTYIqXqDER8L0U3Ei1TezGo2QZspYjk9PtkNCmYPQPgsdgWrPx1qoGtGbf8yPa-6ZNssNmjO3uV427WCNh8uDjCb2yi-M53M7IDOR0ycMDRtiTDN6_h8Pspdke_9JcsHsuOQSpwnTeUaxMo5zcic-oVcFQmlPYs_9O9sTBJr682dw"/>
+              <span class="font-label-md text-label-sm text-on-surface font-bold truncate w-full">Mia</span>
+              <span class="font-label-sm text-[10px] text-tertiary">★ 8.1</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== PANTALLA 2: BATALLA TOKIO NEÓN ==================== -->
+      <section class="hidden flex-col w-full gap-3" id="screen-batalla">
+        <div class="relative w-full rounded-2xl bg-gradient-to-r from-secondary-container via-surface-container-high to-surface-container-lowest p-3 shadow-lg flex items-center justify-between overflow-hidden">
+          <div class="flex items-center gap-2 z-10 min-w-0">
+            <span class="material-symbols-outlined text-primary text-[20px] animate-pulse shrink-0" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+            <div class="min-w-0">
+              <p class="font-headline-sm text-label-lg text-on-surface leading-tight truncate">Duelo Tokio Neón</p>
+              <p class="font-label-sm text-label-sm text-primary-fixed truncate" id="battle-style-label">Ronda Relámpago • En Vivo</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-lowest/90 border border-primary/30 shrink-0">
+            <span class="material-symbols-outlined text-tertiary text-[16px]">timer</span>
+            <span class="font-headline-sm text-label-md text-tertiary font-bold tabular-nums" id="match-timer">01:30</span>
+          </div>
+        </div>
+
+        <!-- Doble Escenario TÚ vs RIVAL -->
+        <div class="relative w-full grid grid-cols-2 gap-2.5 items-stretch">
+          <div class="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center pointer-events-none">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-tertiary-fixed via-tertiary to-tertiary-container shadow-[0_0_16px_rgba(237,193,87,0.7)] flex items-center justify-center border-2 border-surface-container-lowest">
+              <span class="font-headline-sm text-label-sm text-on-tertiary font-extrabold">VS</span>
+            </div>
+            <span class="mt-0.5 px-1.5 py-0.2 rounded-full bg-surface-container-lowest/90 text-[9px] text-tertiary-fixed font-bold">LIVE</span>
+          </div>
+
+          <!-- TÚ: Cara única limpia + capas reales de pelo y maquillaje -->
+          <div class="flex flex-col rounded-2xl bg-surface-container-low p-2 relative overflow-hidden shadow-lg">
+            <div class="flex items-center justify-between px-1 pb-1.5 z-10">
+              <span class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container font-headline-sm text-[11px] font-bold uppercase truncate max-w-[90px]" id="battle-player-badge">TÚ</span>
+              <div class="flex items-center gap-0.5 text-tertiary">
+                <span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="font-headline-sm text-label-md text-on-surface font-extrabold" id="player-score">5.2</span>
+              </div>
+            </div>
+
+            <div class="relative w-full aspect-square rounded-xl overflow-hidden bg-surface-container-lowest flex items-center justify-center" id="avatar-container">
+              <!-- Cara base limpia fija -->
+              <img alt="Cara base limpia" class="w-full h-full object-cover object-top transition-all duration-300 absolute inset-0 z-0" id="base-avatar" src="assets/avatar-despeinada.png"/>
+
+              <!-- Capa de Cabello / Corte sobre la cabeza -->
+              <svg class="absolute inset-0 w-full h-full z-10 pointer-events-none transition-all duration-300 opacity-0" id="layer-hair" viewBox="0 0 100 100">
+                <path id="hairCrownPath" d="M 24 38 C 22 14 78 14 76 38 C 68 20 32 20 24 38 Z" fill="#ff4799" opacity="0.72"></path>
+                <path id="hairLeftStrand" d="M 24 34 C 17 52 18 74 23 92 C 25 74 26 54 28 38 Z" fill="#ff4799" opacity="0.68"></path>
+                <path id="hairRightStrand" d="M 76 34 C 83 52 82 74 77 92 C 75 74 74 54 72 38 Z" fill="#ff4799" opacity="0.68"></path>
+              </svg>
+
+              <!-- Capa de Sombras / Delineado sobre párpados -->
+              <svg class="absolute inset-0 w-full h-full z-10 pointer-events-none transition-opacity duration-300 opacity-0" id="layer-eyes" style="mix-blend-mode: screen;" viewBox="0 0 100 100">
+                <path id="shadowLeft" d="M 33 43 C 36 39 42 39 46 43 C 43 44.5 36 44.5 33 43 Z" fill="#ff4799" opacity="0.85"></path>
+                <path id="shadowRight" d="M 54 43 C 58 39 64 39 67 43 C 64 44.5 57 44.5 54 43 Z" fill="#ff4799" opacity="0.85"></path>
+              </svg>
+
+              <!-- Capa de Pestañas -->
+              <svg class="absolute inset-0 w-full h-full z-10 pointer-events-none transition-opacity duration-300 opacity-0" id="layer-lashes" viewBox="0 0 100 100">
+                <path d="M 34 42 L 32.5 39.5 M 37 41.2 L 36.5 38.8 M 41 41.2 L 41.5 38.8 M 44 42 L 45.5 39.5" stroke="#150629" stroke-linecap="round" stroke-width="0.9"></path>
+                <path d="M 66 42 L 67.5 39.5 M 63 41.2 L 63.5 38.8 M 59 41.2 L 58.5 38.8 M 56 42 L 54.5 39.5" stroke="#150629" stroke-linecap="round" stroke-width="0.9"></path>
+              </svg>
+
+              <!-- Capa de Labios y Rubor -->
+              <svg class="absolute inset-0 w-full h-full z-10 pointer-events-none transition-opacity duration-300 opacity-0" id="layer-lips" viewBox="0 0 100 100">
+                <ellipse cx="32" cy="54" fill="#ff8fa3" opacity="0.32" rx="6" ry="3.5"></ellipse>
+                <ellipse cx="68" cy="54" fill="#ff8fa3" opacity="0.32" rx="6" ry="3.5"></ellipse>
+                <path id="lipShape" d="M 41 64.5 C 44 62.5 47 63 50 64.2 C 53 63 56 62.5 59 64.5 C 56 68.5 53 70 50 70 C 47 70 44 68.5 41 64.5 Z" fill="#ff4799" opacity="0.72"></path>
+                <ellipse cx="50" cy="66.8" fill="#ffffff" opacity="0.45" rx="3" ry="1"></ellipse>
+              </svg>
+
+              <!-- Capa de Brillo / Glitter / Copito -->
+              <div class="absolute inset-0 pointer-events-none transition-opacity duration-300 opacity-0 z-10" id="layer-acc">
+                <div class="absolute top-1.5 left-1.5 text-tertiary animate-bounce">
+                  <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                </div>
+                <div class="absolute top-1.5 right-1.5 text-primary animate-pulse">
+                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">flare</span>
+                </div>
+                <div class="absolute bottom-7 right-1.5 px-1.5 py-0.5 rounded-full bg-surface-container-high/90 text-primary-fixed text-[10px] font-bold">🐾 Copito +15%</div>
+              </div>
+
+              <div class="absolute bottom-1.5 left-1.5 px-2 py-0.5 rounded-md bg-surface-container-lowest/85 backdrop-blur-md flex items-center gap-1 z-20">
+                <span class="material-symbols-outlined text-primary-container text-[13px]">brush</span>
+                <span class="font-label-sm text-[10px] text-on-surface font-bold" id="applied-count">0 de 8</span>
+              </div>
+            </div>
+
+            <div class="mt-2 flex flex-col gap-1">
+              <div class="flex justify-between items-center px-0.5">
+                <span class="font-label-sm text-[10px] text-on-surface-variant italic truncate" id="applause-text">¡Haz tu magia! ✨</span>
+                <span class="font-label-sm text-[10px] text-secondary font-bold shrink-0">Vivo</span>
+              </div>
+              <div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-primary via-primary-container to-tertiary transition-all duration-500 rounded-full" id="score-bar" style="width: 52%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIVAL -->
+          <div class="flex flex-col rounded-2xl bg-surface-container-low p-2 relative overflow-hidden shadow-lg">
+            <div class="flex items-center justify-between px-1 pb-1.5 z-10">
+              <div class="flex items-center gap-1 min-w-0">
+                <span class="font-label-md text-label-sm text-on-surface font-bold truncate" id="rival-name">Camila</span>
+                <span class="material-symbols-outlined text-tertiary text-[14px] shrink-0" style="font-variation-settings: 'FILL' 1;">verified</span>
+              </div>
+              <div class="flex items-center gap-0.5 text-tertiary shrink-0">
+                <span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="font-headline-sm text-label-md text-tertiary font-extrabold" id="rival-score">7.8</span>
+              </div>
+            </div>
+
+            <div class="relative w-full aspect-square rounded-xl overflow-hidden bg-surface-container-lowest flex items-center justify-center">
+              <img alt="Camila Look Final Glamouroso" class="w-full h-full object-cover object-top" id="rival-avatar-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-EGT5XpOXyPtlnDC63m5zRU_DzzzOHvA-WDFvgekb7SUXcQf3mb8XnFfmlMmQyn3k8KTO39YXljWL1WVtGGDsygJJWaOpWObM0-_d5iIUbx3zBrQthI6ccdgGShflSgqJFAaIuIQn8j1V4VmBGS5lbQsfpijQodPrN4UzW_MHW_Ip6U40LgtNeRlG8F7_a8JHuqWKZdOeN-vdUiHi6t3MOq-SiCRs3FgBSHZUHiI"/>
+              <div class="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded-full bg-surface-container-high/90 text-secondary-fixed text-[10px] font-bold">COMPLETO</div>
+            </div>
+
+            <div class="mt-2 flex flex-col gap-1">
+              <div class="flex justify-between items-center px-0.5">
+                <span class="font-label-sm text-[10px] text-on-surface-variant truncate" id="rival-look-label">Look Tokio</span>
+                <span class="font-label-sm text-[10px] text-tertiary font-bold shrink-0">Top 5%</span>
+              </div>
+              <div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+                <div class="h-full bg-tertiary-container rounded-full" id="rival-bar" style="width: 78%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estación de Look en Vivo -->
+        <div class="flex flex-col w-full rounded-2xl bg-surface-container-low p-3 shadow-xl gap-2.5">
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">palette</span>
+              <h2 class="font-headline-sm text-label-lg text-on-surface font-bold truncate">Estación de Look en Vivo</h2>
+            </div>
+            <button class="px-2.5 py-1 rounded-full bg-gradient-to-r from-primary-container/30 to-secondary-container/40 border border-primary/40 text-primary-fixed text-[11px] font-bold flex items-center gap-1 active:scale-95 transition-transform shrink-0" id="open-drawer-btn" type="button">
+              <span class="material-symbols-outlined text-[14px] text-tertiary">cleaning_services</span>
+              <span>Limpiar</span>
+            </button>
+          </div>
+
+          <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5">
+            <button class="tab-btn px-2.5 py-1.5 rounded-full bg-primary-container text-on-primary-container text-[11px] font-bold shrink-0 flex items-center gap-1" data-cat="hair" type="button">
+              <span class="material-symbols-outlined text-[14px]">content_cut</span>
+              <span>Pelo</span>
+            </button>
+            <button class="tab-btn px-2.5 py-1.5 rounded-full bg-surface-container-high text-on-surface text-[11px] font-medium shrink-0 flex items-center gap-1" data-cat="eyes" type="button">
+              <span class="material-symbols-outlined text-[14px]">visibility</span>
+              <span>Sombras</span>
+            </button>
+            <button class="tab-btn px-2.5 py-1.5 rounded-full bg-surface-container-high text-on-surface text-[11px] font-medium shrink-0 flex items-center gap-1" data-cat="lips" type="button">
+              <span class="material-symbols-outlined text-[14px]">favorite</span>
+              <span>Labios</span>
+            </button>
+            <button class="tab-btn px-2.5 py-1.5 rounded-full bg-surface-container-high text-on-surface text-[11px] font-medium shrink-0 flex items-center gap-1" data-cat="acc" type="button">
+              <span class="material-symbols-outlined text-[14px]">stars</span>
+              <span>Glitter</span>
+            </button>
+          </div>
+
+          <!-- Panel Pelo -->
+          <div class="tool-panel grid grid-cols-4 gap-1.5" id="panel-hair">
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="hair" data-gain="0.7" data-item="hair-neon" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-secondary-container via-primary-container to-secondary flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-white text-[20px]">face_retouching_natural</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Galáctico</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.7★</span>
+            </button>
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="hair" data-gain="0.6" data-item="hair-chic" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary via-primary-fixed to-secondary flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-on-primary-container text-[20px]">cruelty_free</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Coletas</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.6★</span>
+            </button>
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="hair" data-gain="0.5" data-item="hair-bob" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-tertiary-container to-primary flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-white text-[20px]">content_cut</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Corte Bob</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.5★</span>
+            </button>
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="hair" data-gain="0.8" data-item="hair-braids" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-secondary-container via-surface-tint to-secondary flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-white text-[20px]">psychology</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Trenzas</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.8★</span>
+            </button>
+          </div>
+
+          <!-- Panel Ojos -->
+          <div class="tool-panel hidden grid-cols-4 gap-1.5" id="panel-eyes">
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="eyes" data-gain="0.5" data-item="eyes-holo" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary-container via-secondary-fixed to-primary flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-white text-[20px]">visibility</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Holo</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.5★</span>
+            </button>
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="eyes" data-gain="0.6" data-item="eyes-cat" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-secondary-container to-primary flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-white text-[20px]">edit</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Delineado</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.6★</span>
+            </button>
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="lashes" data-gain="0.5" data-item="eyes-lashes" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-surface-container-highest to-secondary flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-secondary-fixed text-[20px]">expand</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Pestañas</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.5★</span>
+            </button>
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="liner" data-gain="0.7" data-item="eyes-gems" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-tertiary to-primary-container flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-on-tertiary text-[20px]">diamond</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Gemas</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.7★</span>
+            </button>
+          </div>
+
+          <!-- Panel Labios -->
+          <div class="tool-panel hidden grid-cols-4 gap-1.5" id="panel-lips">
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="lips" data-gain="0.6" data-item="lips-gloss" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-white text-[20px]">water_drop</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Fresa</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.6★</span>
+            </button>
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="lips" data-gain="0.7" data-item="lips-purple" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-secondary-container to-secondary flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-white text-[20px]">colorize</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Morado</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.7★</span>
+            </button>
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="blush" data-gain="0.5" data-item="lips-blush" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-tertiary-fixed-dim to-primary flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-on-tertiary-container text-[20px]">bubble_chart</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Rubor</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.5★</span>
+            </button>
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="lips" data-gain="0.8" data-item="lips-spark" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-tertiary to-primary-container flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-white text-[20px]">flare</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Glitter</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.8★</span>
+            </button>
+          </div>
+
+          <!-- Panel Glitter -->
+          <div class="tool-panel hidden grid-cols-4 gap-1.5" id="panel-acc">
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="glitter" data-gain="0.5" data-item="acc-dust" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-tertiary to-tertiary-fixed flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-on-tertiary text-[20px]">grain</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Estrellas</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.5★</span>
+            </button>
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="acc" data-gain="0.7" data-item="acc-tiara" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-white text-[20px]">crown</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Tiara</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.7★</span>
+            </button>
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all border border-primary/40" data-cat="pet" data-gain="0.9" data-item="acc-pet" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary-container via-tertiary to-secondary-container flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-white text-[20px]">pets</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Copito</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.9★</span>
+            </button>
+            <button class="cosmetic-card cursor-pointer flex flex-col items-center p-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest active:scale-95 text-center transition-all" data-cat="acc" data-gain="0.6" data-item="acc-halo" type="button">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-secondary to-primary-fixed flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-on-secondary text-[20px]">blur_on</span>
+              </div>
+              <span class="text-[11px] text-on-surface font-semibold truncate w-full">Aura</span>
+              <span class="text-[10px] text-tertiary font-bold">+0.6★</span>
+            </button>
+          </div>
+
+          <button class="w-full mt-1 py-3 px-4 rounded-full bg-gradient-to-r from-primary-container via-primary to-tertiary text-on-surface font-headline-sm text-label-lg font-extrabold shadow-[0_6px_20px_rgba(255,71,153,0.45)] active:scale-[0.98] transition-all" id="finish-look-btn" type="button">
+            ¡LISTA PARA PASARELA Y VOTACIÓN!
+          </button>
+        </div>
+
+        <!-- Resultado de Batalla con ambas chicas y Trofeo a las 10 victorias -->
+        <div class="hidden flex-col gap-2.5 bg-surface-container-low p-3 rounded-2xl border border-tertiary/40" id="battle-result-box">
+          <div class="grid grid-cols-2 gap-2">
+            <div class="flex flex-col items-center p-2 rounded-xl bg-surface-container-high border border-transparent" id="result-player-card">
+              <span class="hidden text-lg" id="result-player-crown">👑</span>
+              <img alt="Tu look final" class="w-16 h-16 rounded-lg object-cover object-top mb-1" id="result-player-img" src=""/>
+              <span class="text-xs font-bold text-on-surface truncate w-full text-center" id="result-player-name">TÚ</span>
+              <span class="text-xs font-extrabold text-tertiary" id="result-player-score">0.0★</span>
+            </div>
+            <div class="flex flex-col items-center p-2 rounded-xl bg-surface-container-high border border-transparent" id="result-rival-card">
+              <span class="hidden text-lg" id="result-rival-crown">👑</span>
+              <img alt="Rival look final" class="w-16 h-16 rounded-lg object-cover object-top mb-1" id="result-rival-img" src=""/>
+              <span class="text-xs font-bold text-on-surface truncate w-full text-center" id="result-rival-name">Camila</span>
+              <span class="text-xs font-extrabold text-tertiary" id="result-rival-score">0.0★</span>
+            </div>
+          </div>
+          <p class="font-headline-sm text-headline-sm text-tertiary text-center" id="result-title">¡Resultado!</p>
+          <p class="font-body-sm text-body-sm text-on-surface-variant text-center" id="result-detail"></p>
+          <button class="w-full py-2 rounded-full bg-surface-container-high text-on-surface font-label-md font-bold" id="back-to-studio-btn" type="button">
+            Volver al Estudio
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- BARRA INFERIOR DE NAVEGACIÓN -->
+    <nav class="fixed bottom-0 w-full max-w-[430px] z-40 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl border-t border-outline-variant/20">
+      <div class="h-14 px-4 flex items-center justify-around">
+        <button class="nav-tab flex flex-col items-center gap-0.5 text-primary" data-target="screen-estudio" type="button">
+          <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">styler</span>
+          <span class="text-[10px] font-bold">Estudio</span>
+        </button>
+        <button class="nav-tab flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-on-surface" data-target="screen-batalla" type="button">
+          <span class="material-symbols-outlined text-[20px]">swords</span>
+          <span class="text-[10px] font-medium">Batalla</span>
+        </button>
+      </div>
+    </nav>
+
+  </div>
+
+  <script src="js/state.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
